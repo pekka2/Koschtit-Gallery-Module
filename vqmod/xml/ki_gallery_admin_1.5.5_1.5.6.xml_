@@ -1,0 +1,26 @@
+<modification>
+	<id><![CDATA[Koschtit Gallery Module]]></id>
+	<version><![CDATA[1.0]]></version>
+	<vqmver><![CDATA[2.3.2]]></vqmver>
+	<author><![CDATA[Pm-netti]]></author>
+<file name="admin/controller/common/header.php">
+                 <operation>
+		<search position="before"><![CDATA[$this->language->load('common/header');]]></search>
+                                              <add><![CDATA[$this->language->load('common/toheader');]]></add>
+		</operation>
+		<operation>  
+                                              <search position="after"><![CDATA[$this->language->get('text_setting');]]></search>
+                                              <add><![CDATA[$this->data['text_koschtit_gallery'] = $this->language->get('text_koschtit_gallery');]]></add>
+		</operation>
+		<operation>  
+                                              <search position="before"><![CDATA[$this->data['setting']]]></search>
+                                              <add><![CDATA[$this->data['koschtit_gallery'] = $this->url->link('line/kigallery', 'token=' . $this->session->data['token'], 'SSL');]]></add>
+		</operation>
+</file>
+<file name="admin/view/template/common/header.tpl">
+		<operation>
+                                              <search position="after"><![CDATA[$text_information; ?></a></li>]]></search>
+                                              <add><![CDATA[<li><a href="<?php echo $koschtit_gallery; ?>"><?php echo $text_koschtit_gallery; ?></a></li>]]></add>
+		</operation>
+</file>
+</modification>
