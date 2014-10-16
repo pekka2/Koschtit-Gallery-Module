@@ -1,0 +1,55 @@
+.ki_fullimg{
+                       visibility:hidden; 
+                       position:absolute;
+                       left:50%;
+                       top:50%; 
+                       padding:0px; 
+                       border:0px; 
+                       display:block; 
+                       cursor:pointer;
+}
+#kiv_picdiv{
+z-index:1070 !important;
+}
+#fw_blend{
+       z-index:100 !important;
+}
+#kiv_picdiv{
+                       border: solid <?php echo $ki_out_bord_size;?>px <?php echo $ki_out_bord_color;?>; 
+<?php if($ki_pic_radius == 1){?>
+	-webkit-border-radius: <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px;
+	-moz-border-radius: <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px;
+	-khtml-border-radius: <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px;
+	border-radius: <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px <?php echo $ki_bord_radius;?>px
+<?php } ?>
+}
+
+#kiv_vcomments_form{
+                       color:<?php echo $ki_vcomm_header_color;?>;
+                       background:#e3e3e3;
+}
+.ki_viewercomment{
+                       background:<?php echo $ki_vcomm_back_color;?>;
+                       margin:0px 0px 5px 0px;
+                       padding:4px; 
+                       text-align:left;
+                       color:<?php echo $ki_vcomm_text_color;?>;
+                       margin-top:0px;
+                       border-bottom:solid 5px #666666;
+}
+.ki_comment_date{
+                       background: url(image/data/rooth.gif) repeat-x <?php echo $ki_vcomm_back_color;?>;
+                       font-size:10px; 
+                       text-align:left; 
+                       padding:3px 0px 3px 3px;
+                       margin-top:6px;
+}
+.ki_vcomm_date{
+                       padding-left:0px; 
+                       margin-bottom:10px; 
+                       color:<?php echo $ki_vcomm_timedate_color ?>;'
+}
+.ki_comment_name{
+                       font-weight:bold;
+}
+                       
