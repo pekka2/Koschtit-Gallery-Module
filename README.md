@@ -12,7 +12,7 @@ system/logs).This must be the same as permission of the directory "system/logs".
 <br>
 <img src="helpme/help1.jpg" alt="help01"/><br></div>
 <br/>
-<div>You <b>run install file</b> <em>www.your_store.net/install.php</em>.
+<div>You <b>run install file</b> <em><a href="https://github.com/pekka2/Koschtit-Gallery-Module/blob/master/install.php">www.your_store.net/install.php</a></em>.
 
 <br>
 <img src="helpme/help00.jpg" alt="help00"/><br></div>
