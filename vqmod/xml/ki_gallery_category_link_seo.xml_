@@ -1,0 +1,36 @@
+<modification>
+	<id><![CDATA[Koschtit Gallery Module]]></id>
+	<version><![CDATA[1.0]]></version>
+	<vqmver><![CDATA[2.3.2]]></vqmver>
+	<author><![CDATA[Pm-netti]]></author>
+<file name="catalog/controller/common/header.php">
+       <operation>
+                       <search position="after"><![CDATA[$this->language->load('common/header');]]></search>
+                       <add><![CDATA[
+                         $this->language->load('common/toheader');]]></add>
+                       </operation>
+                       <operation>  
+                       <search position="after"><![CDATA[$this->data['categories'] = array();]]></search>
+                       <add><![CDATA[
+                       $this->data['categories'][] = array('name'=>$this->language->get('text_koschtit_gallery'),   
+                                                                                'children'=>array(),
+                                                                                 'column'=>'',                                                
+                                                                                 'href'=>'gallery/');]]></add>
+     </operation>
+</file>
+<file name="catalog/controller/module/category.php">
+       <operation>
+                       <search position="after"><![CDATA[$this->language->load('module/category');]]></search>
+                       <add><![CDATA[
+                         $this->language->load('common/toheader');]]></add>
+     </operation>
+     <operation>  
+                       <search position="after"><![CDATA[$this->data['categories'] = array();]]></search>
+                       <add><![CDATA[
+                       $this->data['categories'][] = array('name'=>$this->language->get('text_koschtit_gallery'),   
+                                                                                'category_id'=>'',
+                                                                                 'children'=> array(),                                                
+                                                                                 'href'=>'gallery/');]]></add>
+     </operation>
+</file>
+</modification>
