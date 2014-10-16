@@ -1,0 +1,58 @@
+.ki_thumbnail{
+           border:<?php echo $ki_th_bord_size;?>px solid <?php echo $ki_th_bord_color;?>;
+           width:<?php echo $breite;?>px;
+           height:<?php echo $hoehe;?>px;
+           position:absolute;
+           z-index:1;
+          <?php if($ki_th_radius == 1){?>
+	-webkit-border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px;
+	-moz-border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px;
+	-khtml-border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px;
+	border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px
+                       <?php } ?>
+}
+
+.ki_thumbnail:hover{
+                       border:<?php echo $ki_th_bord_size;?>px solid <?php echo $ki_th_bord_hover_color;?>;
+                       width:<?php echo $inc_breite;?>px;
+                       height:<?php echo $inc_hoehe;?>px;
+                       margin-top:-10px;
+                       position:absolute;
+                       <?php if($ki_th_shadow == 1){ ?>
+                         -moz-box-shadow:    2px 2px 2px 2px <?php echo $ki_th_bord_hover_color;?>;
+                         -webkit-box-shadow: 2px 2px 2px 2px <?php echo $ki_th_bord_hover_color;?>;
+                         box-shadow:         2px 2px 2px 2px <?php echo $ki_th_bord_hover_color;?>;
+           <?php }?>
+                       z-index:10;
+}
+.ki_thumbnail_explorer{
+           border:<?php echo $ki_th_bord_size;?>px solid <?php echo $ki_th_bord_color;?>;
+           width:<?php echo $breite;?>px;
+           position:absolute; visibility:hidden;
+           display:block; 
+           height:<?php echo $hoehe;?>px;
+           margin-left:<?php echo $ki_th_margin_left;?>px;
+           margin-top:<?php echo $ki_th_margin_top;?>px;
+           z-index:1;
+           cursor:pointer;
+          <?php if($ki_th_radius == 1){?>
+	-webkit-border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px;
+	-moz-border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px;
+	-khtml-border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px;
+	border-radius: <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px <?php echo $ki_th_bord_radius;?>px
+                       <?php } ?>
+}
+.ki_thumbnail_explorer:hover{
+                       border:<?php echo $ki_th_bord_size;?>px solid <?php echo $ki_th_bord_hover_color;?>;
+                       width:<?php echo $inc_breite;?>px;
+                       height:<?php echo $inc_hoehe;?>px;
+                       margin-left:<?php echo $ki_th_margin_left;?>px;
+                       margin-top:<?php echo $ki_th_margin_top;?>px;
+                        position:relative;
+                       <?php if($ki_th_shadow == 1){ ?>
+                         -moz-box-shadow:    2px 2px 2px 4px <?php echo $ki_th_bord_color;?>;
+                         -webkit-box-shadow: 2px 2px 2px 4px <?php echo $ki_th_bord_color;?>;
+                         box-shadow:         2px 2px 2px 4px <?php echo $ki_th_bord_color;?>;
+                       <?php }?>
+                       z-index:10;
+}
