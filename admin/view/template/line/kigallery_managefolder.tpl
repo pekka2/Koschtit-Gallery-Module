@@ -97,7 +97,6 @@ else { ?>
     </table>
     </form>
 <?php } ?>
-      </table>    
     </div>
   </div>
 </div>
@@ -188,4 +187,3 @@ $(".folder-button").click(function(e){
 $('#tabs a').tabs(); 
 $('#languages a').tabs();
 //--></script>
-<div></div>
