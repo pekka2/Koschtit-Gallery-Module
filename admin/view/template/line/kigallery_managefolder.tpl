@@ -44,7 +44,7 @@
                    <td class="files"><?php echo $text_image_files;?> <?php echo $info[$folder]['files']; ?></td>
                    <td class="disk"><?php echo $text_disk_usage;?> <?php echo $info[$folder]['size']; ?> Mb</td>
                    <td class="folder">
-                   <div class="folder-button" id="id=<?php echo $info[$folder]['folder_id'];?>">    <?php echo $folder ?>   </div>
+                   <div class="folder-button" id="<?php echo $info[$folder]['folder_id'];?>">    <?php echo $folder ?>   </div>
                    </td>
                    <td class="empty-delete">
                    <a class="kg-button" href="<?php echo $managefolder;?>&empty=<?php echo $folder; ?>"><?php echo $button_empty_folder;?></a>
