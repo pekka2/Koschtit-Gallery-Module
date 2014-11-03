@@ -77,7 +77,7 @@ else { ?>
             <?php } ?>
  <?php } ?>
     <table id="folders">
-    <tr><td>&nbsp;</td><td><?php echo $text_photoalbum;?></td><td>Mixname</td><td>Filesize</tr>
+    <tr><td>&nbsp;</td><td><?php echo $text_photoalbum;?></td><td>Mixname</td><td>Filesize</td></tr>
     <?php  
                 for($i=0;$i<count($dir_images);$i++){ ?>
                          <tr><td class="img-left"><?php
