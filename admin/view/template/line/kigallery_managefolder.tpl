@@ -95,6 +95,7 @@ else { ?>
                                
             <?php } ?>
     </table>
+    </form>
 <?php } ?>
       </table>    
     </div>
