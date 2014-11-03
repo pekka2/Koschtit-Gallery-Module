@@ -202,7 +202,7 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_descri
 
 $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_folder` (
   `folder_id` int(3) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_general_ci NOT NULL,
   `mixthumb` int(30) NOT NULL,
   `size` int(15)  NOT NULL,
   `size_of_fr` int(30) NOT NULL,
@@ -227,8 +227,8 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_folder
 $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_folder_description` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `folder_id` int(5) NOT NULL,
-  `title` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
-  `description` text COLLATE utf8_swedish_ci,
+  `title` varchar(50) COLLATE utf8_general_ci NOT NULL,
+  `description` text COLLATE utf8_general_ci,
   `language_id` int(5) NOT NULL,
   `date_modified` date NOT NULL,
   PRIMARY KEY (`id`)
@@ -246,9 +246,9 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_folder
 $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_image` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `folder_id` int(3) NOT NULL,
-  `title` varchar(40) COLLATE utf8_swedish_ci NOT NULL,
-  `filename` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
-  `mixname` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
+  `title` varchar(40) COLLATE utf8_general_ci NOT NULL,
+  `filename` varchar(100) COLLATE utf8_general_ci NOT NULL,
+  `mixname` varchar(100) COLLATE utf8_general_ci NOT NULL,
   `width` int(6) NOT NULL,
   `height` int(6) NOT NULL,
   `filesize` int(20) NOT NULL,
@@ -278,11 +278,11 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_image`
 
 $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_viewercomment` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
-  `address` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8_general_ci NOT NULL,
+  `address` varchar(100) COLLATE utf8_general_ci NOT NULL,
   `date` date NOT NULL,
-  `folder_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
-  `image_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `folder_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `image_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
   `comment` text COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=3");
