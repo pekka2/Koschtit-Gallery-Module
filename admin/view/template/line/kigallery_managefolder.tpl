@@ -44,12 +44,12 @@
                    <td class="files"><?php echo $text_image_files;?> <?php echo $info[$folder]['files']; ?></td>
                    <td class="disk"><?php echo $text_disk_usage;?> <?php echo $info[$folder]['size']; ?> Mb</td>
                    <td class="folder">
-                   <div class="folder-button" id="id=<?php echo $info[$folder]['folder_id'];?>">    <?php echo $folder ?>   </div>
+                   <div class="folder-button" id="<?php echo $info[$folder]['folder_id'];?>">    <?php echo $folder ?>   </div>
                    </td>
                    <td class="empty-delete">
-                   <a class="kg-button" href="<?php echo $managefolder;?>&empty=<?php echo $folder; ?>"><?php echo $button_empty_folder;?>
-                   <a class="kg-button" href="<?php echo $managefolder;?>&rmdir=<?php echo $folder; ?>"><?php echo $button_delete_folder;?>
-                   <a class="kg-button" href="<?php echo $managefolder;?>&images=<?php echo $folder; ?>"><?php echo $button_images;?>
+                   <a class="kg-button" href="<?php echo $managefolder;?>&empty=<?php echo $folder; ?>"><?php echo $button_empty_folder;?></a>
+                   <a class="kg-button" href="<?php echo $managefolder;?>&rmdir=<?php echo $folder; ?>"><?php echo $button_delete_folder;?></a>
+                   <a class="kg-button" href="<?php echo $managefolder;?>&images=<?php echo $folder; ?>"><?php echo $button_images;?></a>
                    </td>
                    </tr>
                   <?php    }
@@ -77,7 +77,7 @@ else { ?>
             <?php } ?>
  <?php } ?>
     <table id="folders">
-    <tr><td>&nbsp;</td><td><?php echo $text_photoalbum;?></td><td>Mixname</td><td>Filesize</tr>
+    <tr><td>&nbsp;</td><td><?php echo $text_photoalbum;?></td><td>Mixname</td><td>Filesize</td></tr>
     <?php  
                 for($i=0;$i<count($dir_images);$i++){ ?>
                          <tr><td class="img-left"><?php
@@ -95,8 +95,8 @@ else { ?>
                                
             <?php } ?>
     </table>
+    </form>
 <?php } ?>
-      </table>    
     </div>
   </div>
 </div>
@@ -187,4 +187,3 @@ $(".folder-button").click(function(e){
 $('#tabs a').tabs(); 
 $('#languages a').tabs();
 //--></script>
-<div></div>
