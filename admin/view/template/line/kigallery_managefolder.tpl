@@ -47,9 +47,9 @@
                    <div class="folder-button" id="id=<?php echo $info[$folder]['folder_id'];?>">    <?php echo $folder ?>   </div>
                    </td>
                    <td class="empty-delete">
-                   <a class="kg-button" href="<?php echo $managefolder;?>&empty=<?php echo $folder; ?>"><?php echo $button_empty_folder;?>
-                   <a class="kg-button" href="<?php echo $managefolder;?>&rmdir=<?php echo $folder; ?>"><?php echo $button_delete_folder;?>
-                   <a class="kg-button" href="<?php echo $managefolder;?>&images=<?php echo $folder; ?>"><?php echo $button_images;?>
+                   <a class="kg-button" href="<?php echo $managefolder;?>&empty=<?php echo $folder; ?>"><?php echo $button_empty_folder;?></a>
+                   <a class="kg-button" href="<?php echo $managefolder;?>&rmdir=<?php echo $folder; ?>"><?php echo $button_delete_folder;?></a>
+                   <a class="kg-button" href="<?php echo $managefolder;?>&images=<?php echo $folder; ?>"><?php echo $button_images;?></a>
                    </td>
                    </tr>
                   <?php    }
