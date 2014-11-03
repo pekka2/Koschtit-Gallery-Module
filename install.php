@@ -151,8 +151,8 @@ if(!isset($error)){?>
 
 $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_admin_comment` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `folder_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
-  `image_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `folder_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
+  `image_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
   `comment` text COLLATE utf8_swedish_ci NOT NULL,
   `language_id` int(5) NOT NULL,
   PRIMARY KEY (`id`)
