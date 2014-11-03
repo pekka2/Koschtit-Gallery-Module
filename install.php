@@ -153,10 +153,10 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_admin_
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `folder_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
   `image_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
-  `comment` text COLLATE utf8_swedish_ci NOT NULL,
+  `comment` text COLLATE utf8_general_ci NOT NULL,
   `language_id` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=1");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1");
 
 ?>
 
@@ -211,7 +211,7 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_folder
   `sort_order` int(3) NOT NULL,
   `status` int(3) NOT NULL,
   PRIMARY KEY (`folder_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=3");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3");
 
 
 ?>
@@ -232,7 +232,7 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_folder
   `language_id` int(5) NOT NULL,
   `date_modified` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=3");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3");
 
 ?>
 
@@ -262,7 +262,7 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_image`
   `date_added` date NOT NULL,
   `sort_order` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=1");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1");
 
 ?>
 
@@ -285,7 +285,7 @@ $db->query("CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "koschtit_gallery_viewer
   `image_name` varchar(255) COLLATE utf8_general_ci NOT NULL,
   `comment` text COLLATE utf8_swedish_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=3");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3");
 
 ?>
 
