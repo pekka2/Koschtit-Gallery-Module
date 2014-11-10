@@ -257,26 +257,10 @@ alert("ERROR: KoschtIT Image Gallery couldn't find the main config file 'ki_setu
 	
 	if($switchtodefaults == 1){
 		$params = "<?php\r\n".$params."?>";
-	/*	if(!@file_put_contents($confdir."ki_setup.php", $params)){
-?>
-<script type="text/javascript">
-alert("ERROR: Your 'ki_setup.php' does not match this script version. Please grant writing permission to the 'ki_config'-folder and reload this site to finish the upgrade procedure.");
-</script>
-<?php
-			exit();
-		} */
-		
-					
 	}
 	
 	$access = "?reldir=".$reldir;
-                       /* if(isset($_GET['admin'])){
-                                              $access .= "&admin=".$_GET['admin'];
-                       }
-                       if(isset($_GET['user'])){
-                                              $access .= "&user=".$_GET['user'];
-                       } */
-
+                     
 ?>
 <script type="text/javascript" src="<?php echo $basedir ?>ki_js_framework.php<?php echo $access ?>"></script>
 <?php
@@ -294,48 +278,5 @@ else
 </script>
 <?php 
 	}
-	#ob_start("jsdisabled");
 } 
-/*
-function jsdisabled($buffer){   
-                     
-          $reldir = $_SERVER['PHP_SELF'];
-	$galleriesdir = GALLERIES_DIR;
-                       $basedir = BASE_DIR;
-                       $browser = BROWSER;
-	$ki_fr_width = KI_FR_WIDTH;
-                       $ki_fr_height = KI_FR_HEIGHT;
-                       $ki_fr_color = KI_FR_COLOR;
-                       $ki_show_nav = KI_SHOW_NAV;
-                       $ki_nav_always = KI_NAV_ALWAYS;
-	@chdir(dirname((strstr($_SERVER["SCRIPT_FILENAME"], $_SERVER["PHP_SELF"]) ? $_SERVER["SCRIPT_FILENAME"] : $_SERVER["PATH_TRANSLATED"])));
-	preg_match_all("|(<div[^>]+class\s*=\s*[\"'][^>]*koschtitgallery[^>]*[\"'][^>]*)>.*</div>|U", $buffer, $out, PREG_PATTERN_ORDER);
-	$navimgsize = getimagesize($basedir."ki_nav_next.png");
-	if(is_array($out)){
-		if(is_array($out[0])){
-			for($i = 0; $i < count($out[0]); $i++){
-				if(preg_match("|<div[^>]+title\s*=\s*[\"']([^>]+)[\"'][^>]*>|U", $out[0][$i], $temp)){
-					$titlefound = $temp[1];
-					
-					if(is_file('../ki_config/'.$titlefound."_ki_setup.php"))
-						include(KI_CONFIG.$titlefound."_ki_setup.php");
-					$stylestring = "position:relative; padding:0px; width:".$ki_fr_width."px; height:".$ki_fr_height."px; background:".$ki_fr_color.";";						
-					if($ki_show_nav == 1 && $ki_nav_always == 0)$ki_fr_height += ($navimgsize[1]+18);
-					$noscript = "<object type='application/xhtml+xml' data='".$basedir."i_nojs.php?gallery=".$titlefound."&amp;site=".$_SERVER['REQUEST_URI']."' width='".$ki_fr_width."' height='".$ki_fr_height."'></object>";
-					if(in_array($browser, array("ie6", "ie7"))){
-						$noscript = "<iframe src='".$basedir."ki_nojs.php?gallery=".$titlefound."&amp;site=".$_SERVER['REQUEST_URI']."' style='width:".$ki_fr_width."px; height:".$ki_fr_height."px;' frameborder='0'></iframe>";
-					}
-					if(preg_match("|(<div[^>]+style\s*=\s*[\"'])([^>]+)([\"'][^>]*>)|U", $out[0][$i], $temp)){
-						$buffer = str_replace($out[0][$i], $temp[1].$temp[2]."; ".$stylestring.$temp[3].$noscript."</div>", $buffer);
-					} else {
-						$buffer = str_replace($out[0][$i], $out[1][$i]." style='".$stylestring."'>".$noscript."</div>", $buffer);
-					}
-				}	
-			}
-		}
-	}
-	
-	return $buffer;
-}
-*/
 ?>
