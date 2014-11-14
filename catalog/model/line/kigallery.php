@@ -20,7 +20,7 @@ class ModelLineKiGallery extends Model{
                        if(isset($query->row['language_id'])){
                                  return $id;
                                  } else{
-                           $result = $this->db->query("SELECT * FROM " . DB_PREFIX . "language WHERE code='en'");
+                           $result = $this->db->query("SELECT * FROM " . DB_PREFIX . "language WHERE code='en' OR code='EN'");
                          return $result->row['language_id'];
                        }
         }
