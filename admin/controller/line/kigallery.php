@@ -592,7 +592,6 @@ class ControllerLineKiGallery extends Controller {
                                                                                             $this->data['ki_basedir'] = $basedir;
                                               }
                        
-                       $ki_permission = $setting['ki_permission'];
                        $maximwidth = $setting['ki_maxim_pic_width'];
                        $maximheight = $setting['ki_maxim_pic_width'];     
                        $mixname = $setting['ki_mixname'];     
@@ -657,7 +656,7 @@ class ControllerLineKiGallery extends Controller {
                                                                       "404f"=>sprintf($this->language->get('error_folder_directory_not_found'),$ki_gallery.$pfolder));
 
                        if(isset($this->request->post['folder']) && $this->validateForm()){
-                                              $done =  $this->model_line_kigallery->addImage($this->request->post,$ki_gallery,$basedir,$mixname,$maximwidth,$maximheight,$ki_permission);
+                                              $done =  $this->model_line_kigallery->addImage($this->request->post,$ki_gallery,$basedir,$mixname,$maximwidth,$maximheight);
                                       
                                       if(!strpos($done,'/')){
                                                   $this->session->data['warning'] = $error_list[$done];
@@ -914,7 +913,6 @@ public function image() {
                                                       if(isset($setting['ki_base'])){
                                                       $ki_base = $setting['ki_base'];
                                                       }
-                                                      $ki_permission = $setting['ki_permission'];
                                                                                                     
                                                                 $this->data['watermark_hori'] = $setting['ki_watermark_hori'];
                                                                 $this->data['watermark_vert'] = $setting['ki_watermark_vert'];
@@ -964,7 +962,7 @@ public function image() {
                                               $done = '';
                         if(isset($this->request->post['change_folder'])){
                                           
-                                      $done =   $this->model_line_kigallery->changeImageFolder($this->request->post,$ki_gallery,$ki_base,$ki_permission);
+                                      $done =   $this->model_line_kigallery->changeImageFolder($this->request->post,$ki_gallery,$ki_base);
                                         $plod = explode("/",$this->request->get['image']);
                                         $change_folder = $this->request->post['change_folder'].'/'.$plod[1];
          }
