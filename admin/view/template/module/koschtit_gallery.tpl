@@ -149,24 +149,6 @@
                 <td><?php echo $entry_fr_color_help; ?></td>
                 </tr>
                 
-                       
-            <tr><td class="left"><?php echo $entry_permission; ?></td><td class="left">
-         <?php   if(isset($module['ki_permission']) &&  $module['ki_permission'] == 1){ ?>
-              <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="1"  checked="checked"/> 777
-                 <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="2"/> 775
-            <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="0"/> 755
-               <?php }   elseif($module['ki_permission'] == 2){ ?>
-                   <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="1"/> 777
-         <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="2"  checked="checked"/> 775
-               <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="0"/> 755
-               <?php }else{ ?>
-              <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="1"/>777
-         <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="2"/> 775
-               <input name="kigallery_module[<?php echo $i; ?>][ki_permission]" type="radio" value="0"  checked="checked"/> 755
-               <?php } ?>            </td>   
-                <td><?php echo $entry_permission_help; ?></td>
-                </tr>
-                
                 
                 
                        
@@ -1024,12 +1006,6 @@ html += '             </td></tr>';
 html += '          <tr><td class="left"><?php echo addslashes($entry_fr_color); ?></td> <td class="left">';
 html += '<input type="text" name="kigallery_module[' + module_row + '][ki_fr_color]" value="#666666" size="12">';
 html += '            </td><td class="left"><?php echo addslashes($entry_fr_color_help); ?></td></tr>';   
-html += ' <tr><td class="left"><?php echo $entry_permission; ?></td><td class="left">';
-html += ' <input name="kigallery_module[' + module_row + '][ki_permission]" type="radio" value="1"  checked="checked"/> 777';
-html += ' <input name="kigallery_module[' + module_row + '][ki_permission]" type="radio" value="2"/> 775';   
-html += ' <input name="kigallery_module[' + module_row + '][ki_permission]" type="radio" value="0"/> 755    </td>';   
-html += ' <td><?php echo $entry_permission_help; ?></td>';
-html += ' </tr>';
 html += ' <tr><td class="left"><?php echo $entry_image_order; ?></td><td class="left">';  
 html += ' <input name="kigallery_module[' + module_row + '][ki_img_order]" type="radio" value="manual"  checked="checked"/> <?php echo $text_manual;?><br>';  
 html += ' <input name="kigallery_module[' + module_row + '][ki_img_order]" type="radio" value="size"/> <?php echo $text_size;?><br>';  
