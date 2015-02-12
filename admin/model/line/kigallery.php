@@ -342,7 +342,7 @@ $db_prefix = 'db prefix';
                       }
 
           }
-          public function changeImageFolder($data,$ki_gallery,$ki_base,$ki_permission){
+          public function changeImageFolder($data,$ki_gallery,$ki_base){
                     if($data['change_folder'] !=$data['foldername']){
                                                    
                         $query=$this->db->query("SELECT * FROM " . DB_PREFIX ."koschtit_gallery_folder WHERE name='".$data['foldername']."'");
@@ -368,20 +368,9 @@ $db_prefix = 'db prefix';
                         if(file_exists($thumb_path)){
                         $thumb_dir = '../'.$ki_gallery.$data['change_folder'] .'/thumbs/';   
                             if(!is_dir($thumb_dir)){
-                                                      if($ki_permission == 1){
-                                                              $mask = umask(0);
-                                                           @mkdir($thumb_dir,0777);
-                                                           umask($mask);
-                                                           }
-                                                       elseif($ki_permission == 2){
-                                                              $mask = umask(0);
-                                                             @mkdir($thumb_dir,0775);
-                                                             umask($mask);
-                                                           }else{
-                                                              $mask = umask(0);
-                                                             @mkdir($thumb_dir,0755);
-                                                             umask($mask);
-                                                           }
+                                                                     $real_permission = $this->getLogsPerms();
+                                                                                        @mkdir( $thumb_dir, octdec( $real_permission );
+
                                  } 
                      
                           @copy($thumb_path,$copy_thumb_path);
@@ -655,7 +644,7 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                                       
                        }
 }
-    public function addImage($data,$ki_galleries,$ki_base,$ki_mixname,$maxx,$maxy,$ki_permission){
+    public function addImage($data,$ki_galleries,$ki_base,$ki_mixname,$maxx,$maxy){
                   $ki_watermark_hori = $data['watermark_hori'];
                   $ki_watermark_vert = $data['watermark_vert'];
                   $ki_watermark_size = $data['watermark_size'];
@@ -730,19 +719,15 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                                                       else{
                                                                         $p ='';
                                                       }
-			$target_path = "../".$ki_galleries.$dir.$p;
+			                                             $target_path = "../".$ki_galleries.$dir.$p;
                                                                      $targets = "../".$ki_galleries;
-                                                            
-                                                                                  if($ki_permission == 1){
-                                                                                        @chmod($targets,0777);
-                                                                                        @chmod($target_path,0777);
-                                                                                  }
-                                                                 
-                                                                                  if($ki_permission == 2){
-                                                                                        @chmod($targets,0775);
-                                                                                        @chmod($target_path,0775);
-                                                                                  }     
-                                                       
+                                                                     $real_permission = this->getLogsPerms();
+                                                            if( file_exists( $targets ) && $this->getFileperms( $targets ) != $real_permission ) {
+                                                                                        @chmod( $targets, octdec( $real_permission );
+                                                            }
+                                                            if( file_exists( $targets_path ) && $this->getFileperms( $targets_path ) != $real_permission ) {
+                                                                                        @chmod( $targets_path, octdec( $real_permission );
+                                                            }
                                                        
 			$temp = explode('.', strtolower($thefile['name']));
    
@@ -1221,7 +1206,6 @@ public function addWatermark($data,$ki_gallery,$ki_base){
              $ki_th_2sq_crop_hori = $setting['ki_th_2sq_crop_hori'];
              $ki_show_nav = $setting['ki_show_nav'];
              $ki_nav_always = $setting['ki_nav_always'];
-             $ki_permission = $setting['ki_permission'];
              
                 $error = false;
                 $path = "../".$ki_galleries;
@@ -1249,15 +1233,8 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                             
                                          if(!is_dir($folder)){
                                               $mask=umask(0);
-                                                                     if($ki_permission == 1){
-                                                                       @mkdir($folder, 0777); 
-                                                                     }
-                                                                     elseif($ki_permission == 2){
-                                                                       @mkdir($folder, 0775); 
-                                                                     }
-                                                                      else {
-                                                                       @mkdir($folder,0755); 
-                                                                     }
+                                              $real_permission = $this->getLogsPerms();
+                                              @mkdir( $folder, octdec( $real_permission );
                                               umask($mask);     
                                               
                                         } /* else {
@@ -1473,6 +1450,15 @@ public function updateDiskUsage($ki_gallery,$folder){
                                             $new .=$data[$i];
                           }
                           return $new;
+          }
+          private function getFileperms($dir){
+  	        $dir_permission = substr( sprintf( '%o', fileperms( $dir ) ), -4 );
+                       return $dir_permission;
+          }
+          private function getLogsPerms(){
+	      $path	 = DIR_SYSTEM . 'logs/';
+	      $dir_permission = substr( sprintf( '%o', fileperms( $path ) ), -4 );
+                       return $dir_permission;
           }
         private function changeArrayKeys($array){
                           $new = array();
