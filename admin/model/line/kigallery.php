@@ -369,7 +369,7 @@ $db_prefix = 'db prefix';
                         $thumb_dir = '../'.$ki_gallery.$data['change_folder'] .'/thumbs/';   
                             if(!is_dir($thumb_dir)){
                                                                      $real_permission = $this->getLogsPerms();
-                                                                                        @mkdir( $thumb_dir, octdec( $real_permission );
+                                                                                        @mkdir( $thumb_dir, octdec( $real_permission ) );
 
                                  } 
                      
@@ -721,12 +721,12 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                                                       }
 			                                             $target_path = "../".$ki_galleries.$dir.$p;
                                                                      $targets = "../".$ki_galleries;
-                                                                     $real_permission = this->getLogsPerms();
+                                                                     $real_permission = $this->getLogsPerms();
                                                             if( file_exists( $targets ) && $this->getFileperms( $targets ) != $real_permission ) {
-                                                                                        @chmod( $targets, octdec( $real_permission );
+                                                                                        @chmod( $targets, octdec( $real_permission ) );
                                                             }
                                                             if( file_exists( $targets_path ) && $this->getFileperms( $targets_path ) != $real_permission ) {
-                                                                                        @chmod( $targets_path, octdec( $real_permission );
+                                                                                        @chmod( $targets_path, octdec( $real_permission ) );
                                                             }
                                                        
 			$temp = explode('.', strtolower($thefile['name']));
@@ -1234,7 +1234,7 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                                          if(!is_dir($folder)){
                                               $mask=umask(0);
                                               $real_permission = $this->getLogsPerms();
-                                              @mkdir( $folder, octdec( $real_permission );
+                                              @mkdir( $folder, octdec( $real_permission ) );
                                               umask($mask);     
                                               
                                         } /* else {
