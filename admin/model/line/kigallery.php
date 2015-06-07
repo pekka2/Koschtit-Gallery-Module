@@ -725,8 +725,8 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                                                             if( file_exists( $targets ) && $this->getFileperms( $targets ) != $real_permission ) {
                                                                                         @chmod( $targets, octdec( $real_permission ) );
                                                             }
-                                                            if( file_exists( $targets_path ) && $this->getFileperms( $targets_path ) != $real_permission ) {
-                                                                                        @chmod( $targets_path, octdec( $real_permission ) );
+                                                            if( file_exists( $target_path ) && $this->getFileperms( $target_path ) != $real_permission ) {
+                                                                                        @chmod( $target_path, octdec( $real_permission ) );
                                                             }
                                                        
 			$temp = explode('.', strtolower($thefile['name']));
