@@ -368,9 +368,9 @@ $db_prefix = 'db prefix';
                         if(file_exists($thumb_path)){
                         $thumb_dir = '../'.$ki_gallery.$data['change_folder'] .'/thumbs/';   
                             if(!is_dir($thumb_dir)){
-                                                                     $real_permission = $this->getLogsPerms();
-                                                                                        @mkdir( $thumb_dir, octdec( $real_permission ) );
-
+                                                   
+                                              $real_permission = $this->getLogsPerms();
+                                              @mkdir( $thumb_dir, octdec( $real_permission ) );
                                  } 
                      
                           @copy($thumb_path,$copy_thumb_path);
@@ -719,15 +719,16 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                                                       else{
                                                                         $p ='';
                                                       }
-			                                             $target_path = "../".$ki_galleries.$dir.$p;
+                                                                     $target_path = "../".$ki_galleries.$dir.$p;
                                                                      $targets = "../".$ki_galleries;
                                                                      $real_permission = $this->getLogsPerms();
                                                             if( file_exists( $targets ) && $this->getFileperms( $targets ) != $real_permission ) {
                                                                                         @chmod( $targets, octdec( $real_permission ) );
                                                             }
-                                                            if( file_exists( $target_path ) && $this->getFileperms( $target_path ) != $real_permission ) {
-                                                                                        @chmod( $target_path, octdec( $real_permission ) );
+                                                            if( file_exists( $targets_path ) && $this->getFileperms( $targets_path ) != $real_permission ) {
+                                                                                        @chmod( $targets_path, octdec( $real_permission ) );
                                                             }
+                                                       
                                                        
 			$temp = explode('.', strtolower($thefile['name']));
    
@@ -979,7 +980,7 @@ public function addWatermark($data,$ki_gallery,$ki_base){
                 $max_image = $this->maxImage();
               $query2 = $this->db->query("SELECT * FROM " . DB_PREFIX . "koschtit_gallery_image WHERE id = '" .$max_image ."'");
               $filename = basename($target_name);
-              if(isset($query2->row['filename']) && $query2->row['filename'] != $filename ){
+              if(!isset($query2->row['filename'])  or isset($query2->row['filename']) && $query2->row['filename'] != $filename ){
                                                              $this->db->query("INSERT INTO " . DB_PREFIX . "koschtit_gallery_image SET
                                                                                                                                       folder_id = '" . $folder_id . "',
                                                                                                                                       filename = '" . $this->db->escape(basename($target_name)) ."',
@@ -1222,9 +1223,9 @@ public function addWatermark($data,$ki_gallery,$ki_base){
 
              if(isset($data['createfolder'])){
                               $folder = "../".$ki_galleries . $data['createfolder']."/";
-              } elseif($data['rmdir']){
+              } elseif(isset($data['rmdir'])){
                               $folder = "../".$ki_galleries . $data['rmdir']."/";
-              } elseif($data['empty']){
+              } elseif(isset($data['empty'])){
                               $folder = "../".$ki_galleries . $data['empty']."/";
               }
 	if(isset($data['createfolder'])){
@@ -1450,14 +1451,14 @@ public function updateDiskUsage($ki_gallery,$folder){
                                             $new .=$data[$i];
                           }
                           return $new;
-          }
+            }
           private function getFileperms($dir){
-  	        $dir_permission = substr( sprintf( '%o', fileperms( $dir ) ), -4 );
+	$dir_permission = substr( sprintf( '%o', fileperms( $dir ) ), -4 );
                        return $dir_permission;
           }
           private function getLogsPerms(){
-	      $path	 = DIR_SYSTEM . 'logs/';
-	      $dir_permission = substr( sprintf( '%o', fileperms( $path ) ), -4 );
+	$path	 = DIR_SYSTEM . 'logs/';
+	$dir_permission = substr( sprintf( '%o', fileperms( $path ) ), -4 );
                        return $dir_permission;
           }
         private function changeArrayKeys($array){
@@ -1465,7 +1466,7 @@ public function updateDiskUsage($ki_gallery,$folder){
                          $keys = array_keys($array);
                          for($i=0;$i<count($keys);$i++){
                                            $new[$i] = $array[$keys[$i]];
-                }
+        }
               
         return $new;
 }
